@@ -8,9 +8,13 @@ namespace Business.Constants
 {
     internal class Messages
     {
-        public static string ProductAded = "Ürün eklendi.";
-        public static string ProductNameInvalid = "Ürün ismi geçersiz!";
-        public static string ProductListed = "Ürünler listelendi.";
-        public static string MaintaceTime = "Sistem bakımda";
+        public static string ProductAded = "Product Added!";
+        public static string ProductNameInvalid = "Invalid Product Name!";
+        public static string ProductListed = "Listed!";
+        public static string MaintaceTime = "System is under maintenance!";
+
+        public static string ProductDeleted = "Product Deleted!";
+
+        public static string ProductUpdated = "Product Updated!";
     }
 }

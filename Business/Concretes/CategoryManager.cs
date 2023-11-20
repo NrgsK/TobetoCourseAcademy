@@ -1,6 +1,9 @@
 ﻿using Business.Abstracts;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
+using DataAccess.Concretes.EntityFramework;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -17,16 +20,33 @@ namespace Business.Concretes
         {
             _categoryDal = categoryDal;
         }
-        public List<Category> GetAll()
+
+        public IResult Add(Category category)
         {
-            return _categoryDal.GetAll();
+            _categoryDal.Add(category);
+            return new SuccessResult(Messages.ProductAded);
         }
 
-        public List<Category> GetAllByCategoryId(int id)
+        public IResult Delete(Category category)
         {
-            return _categoryDal.GetAll(cat => cat.CategoryId == id);
+            _categoryDal.Delete(category);
+            return new SuccessResult(Messages.ProductDeleted);
         }
 
-       
+        public IDataResult<Category> Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Category>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Update(Category category)
+        {
+            _categoryDal.Update(category);
+            return new SuccessResult(Messages.ProductUpdated);
+        }
     }
 }

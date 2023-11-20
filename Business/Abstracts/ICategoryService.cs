@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace Business.Abstracts
 {
-    public interface ICategoryService
+    public interface ICategoryService : IGenericService<Category>
     {
-        List<Category> GetAll();
-        List<Category> GetAllByCategoryId(int id);
-        
+
     }
 }

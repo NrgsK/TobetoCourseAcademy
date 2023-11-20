@@ -8,13 +8,9 @@ using System.Threading.Tasks;
 
 namespace Business.Abstracts
 {
-    public interface ICourseService
+    public interface ICourseService : IGenericService<Course>
     {
-        IDataResult<List<Course>> GetAll();
-        IDataResult<Course> Get(int id);
-        IResult Add(Course course);
-        IResult Delete(Course course);
-        IResult Update(Course course);
+
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using Entities.Concretes;
+﻿using Core.Utilities.Results;
+using Entities.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Business.Abstracts
 {
-    public interface IInstructorService
+    public interface IInstructorService : IGenericService<Instructor>
     {
-        List<Instructor> GetAll();
-        List<Instructor> GetAllByInstructorId(int id);
+
     }
 }
