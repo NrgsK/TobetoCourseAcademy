@@ -16,5 +16,8 @@ namespace Business.Constants
         public static string ProductDeleted = "Product Deleted!";
 
         public static string ProductUpdated = "Product Updated!";
+        public static string CourseAdded = "Course Added!";
+        public static string CourseDeleted = "Course Deleted!";
+        public static string CourseUptaded = "Course Uptaded!";
     }
 }

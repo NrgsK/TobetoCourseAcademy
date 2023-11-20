@@ -1,7 +1,9 @@
 ﻿using Business.Abstracts;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using Entities.Concretes;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,34 +22,35 @@ namespace Business.Concretes
 
         public IResult Add(Course course)
         {
-            //if (course.CourseName == "y")
-            //{
-            //    return new ErrorResult("Invalid course name!");
-            //}
             _courseDal.Add(course);
-            return new SuccessResult("Course added.");
+            return new SuccessResult(Messages.CourseAdded);
         }
 
         public IResult Delete(Course course)
         {
             _courseDal.Delete(course);
-            return new SuccessResult("Course deleted.");
+            return new SuccessResult(Messages.CourseDeleted);
         }
 
         public IDataResult<Course> Get(int id)
         {
-            return new SuccessDataResult<Course>(_courseDal.Get(c => c.CourseId == id),"Founded!");
+            return new SuccessDataResult<Course>(_courseDal.Get(c => c.CourseId == id));
         }
 
         public IDataResult<List<Course>> GetAll()
         {
-            return new SuccessDataResult<List<Course>>(_courseDal.GetAll(),"Course List ");
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll());
+        }
+
+        public IDataResult<List<CourseDetailDto>> GetCourseDetails()
+        {
+           // return new SuccessDataResult<List<CourseDetailDto>>(_courseDal.GetCourseDetails());
         }
 
         public IResult Update(Course course)
         {
             _courseDal.Update(course);
-            return new SuccessResult("Updated!");
+            return new SuccessResult(Messages.CourseUptaded);
         }
     }
 }

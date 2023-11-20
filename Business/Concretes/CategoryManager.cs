@@ -35,12 +35,12 @@ namespace Business.Concretes
 
         public IDataResult<Category> Get(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryId == id));
         }
 
         public IDataResult<List<Category>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll());
         }
 
         public IResult Update(Category category)
