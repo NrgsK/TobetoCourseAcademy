@@ -1,13 +1,25 @@
 ﻿using Business.Concretes;
+using DataAccess.Concretes.EntityFramework;
 using Entities.Concretes;
 
-Category category1= new Category();
-category1.Id = 1;
-category1.Name = "Programlama";
+CourseTest();
 
-CategoryManager categoryManager = new CategoryManager();
-categoryManager.Add(category1);
 
+static void CourseTest()
+{
+    CourseManager courseManager = new CourseManager(new EfCourseDal());
+
+    Course course = new Course()
+    {
+        CourseName = "C#",
+        CategoryId = 1,
+        InstructorId = 1
+
+    };
+
+    var result = courseManager.Add(course); //**
+    Console.WriteLine(result.Message);
+}
 
 //Sıfırdan proje oluşturunuz --> TobetoETrade
 //Product sınıfını katmanlarında işletiniz.
