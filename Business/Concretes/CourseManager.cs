@@ -23,13 +23,13 @@ namespace Business.Concretes
         public IResult Add(Course course)
         {
             _courseDal.Add(course);
-            return new SuccessResult(Messages.CourseAdded);
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult Delete(Course course)
         {
             _courseDal.Delete(course);
-            return new SuccessResult(Messages.CourseDeleted);
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<Course> Get(int id)
@@ -44,13 +44,13 @@ namespace Business.Concretes
 
         public IDataResult<List<CourseDetailDto>> GetCourseDetails()
         {
-           // return new SuccessDataResult<List<CourseDetailDto>>(_courseDal.GetCourseDetails());
+            return new SuccessDataResult<List<CourseDetailDto>>(_courseDal.GetCourseDetails());
         }
 
         public IResult Update(Course course)
         {
             _courseDal.Update(course);
-            return new SuccessResult(Messages.CourseUptaded);
+            return new SuccessResult(Messages.Uptaded);
         }
     }
 }

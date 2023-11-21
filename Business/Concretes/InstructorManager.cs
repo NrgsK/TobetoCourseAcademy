@@ -1,4 +1,6 @@
 ﻿using Business.Abstracts;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
@@ -16,14 +18,33 @@ namespace Business.Concretes
         {
             _instructorDal = instructorDal;
         }
-        public List<Instructor> GetAll()
+
+        public IResult Add(Instructor instructor)
         {
-            return _instructorDal.GetAll();
+            _instructorDal.Add(instructor);
+            return new SuccessResult(Messages.Added);
         }
 
-        public List<Instructor> GetAllByInstructorId(int id)
+        public IResult Delete(Instructor instructor)
         {
-            return _instructorDal.GetAll(i=>i.InstructorId == id);
+            _instructorDal.Delete(instructor);
+            return new SuccessResult(Messages.Deleted);
         }
+
+        public IDataResult<Instructor> Get(int id)
+        {
+            return new SuccessDataResult<Instructor>(_instructorDal.Get(c => c.InstructorId == id));
+        }
+
+        public IResult Update(Instructor instructor)
+        {
+            _instructorDal.Update(instructor);
+            return new SuccessResult(Messages.Uptaded);
+        }
+        public IDataResult<List<Instructor>> GetAll()
+        {
+            return new SuccessDataResult<List<Instructor>>(_instructorDal.GetAll());
+        }
+
     }
 }

@@ -24,13 +24,13 @@ namespace Business.Concretes
         public IResult Add(Category category)
         {
             _categoryDal.Add(category);
-            return new SuccessResult(Messages.ProductAded);
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult Delete(Category category)
         {
             _categoryDal.Delete(category);
-            return new SuccessResult(Messages.ProductDeleted);
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<Category> Get(int id)
@@ -46,7 +46,7 @@ namespace Business.Concretes
         public IResult Update(Category category)
         {
             _categoryDal.Update(category);
-            return new SuccessResult(Messages.ProductUpdated);
+            return new SuccessResult(Messages.Uptaded);
         }
     }
 }
